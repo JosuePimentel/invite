@@ -1,0 +1,151 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-container {
+  height: 100vh;
+  width: 100vw;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url(images/fundoBase.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.box-invite {
+  cursor: pointer;
+  width: 300px;
+  height: 200px;
+  margin: 20px;
+  position: relative;
+  border-radius: 5px;
+  border: 2px solid #000;
+  background-color: #e6d2ca;
+}
+
+.box-invite > span {
+  display: block;
+  position: absolute;
+}
+
+.box-invite > span.pOne {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  clip-path: polygon(0% 0%, 50% 50%, 100% 0%, 100% 100%, 0 100%, 0 0);
+  z-index: 12;
+}
+
+.box-invite > span.pOne:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 1.5%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e6d2ca;
+  clip-path: polygon(0% 0%, 50% 50%, 100% 0%, 100% 100%, 0 100%, 0 0);
+}
+
+.box-invite.clicked > span.pTwo {
+    top: -70.5%;
+    transform: scaleY(-1);
+    z-index: 11;
+}
+
+.box-invite > span.pTwo {
+  width: 101%;
+  height: 70%;
+  background: #000;
+  position: absolute;
+  z-index: 13;
+  top: 0;
+  left: -0.5%;
+  clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+  transition: all .5s ease 0s;
+}
+
+.box-invite > span.pTwo:before {
+  content: '';
+  position: absolute;
+  top: 0%;
+  left: 1%;
+  width: 98%;
+  height: 98%;
+  display: block;
+  background-color: #ddb9aa;
+  clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+  z-index: 14;
+  transform: scaleY(1);
+}
+
+.box-invite > div.carta {
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  position: relative;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.box-invite > div.carta > span {
+  width: 70%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border-radius: 5px;
+  background: url(images/casalBase.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 10%;
+  transition: all .5s ease .6s;
+  border: 2px solid #000;
+}
+
+.box-invite.clicked > div.carta > span {
+  top: -20%;
+  animation: kick 2000ms 100ms 2 normal ease;
+}
+
+@keyframes kick {
+  0% {
+    transform: translateY(0);
+  } 50% {
+    transform: translateY(-20px);
+  } 100% {
+    transform: translateY(0);
+  }
+}
+
+/* Loader */
+
+span.loader {
+  display: none;
+  border: 8px solid transparent;
+  border-top-color: #ddb9aa;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
